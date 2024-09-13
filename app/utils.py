@@ -1,11 +1,11 @@
-import tensorflow_hub as hub
+from sentence_transformers import SentenceTransformer
 
-# Charger le modèle depuis le chemin local
-local_model_path = "app/models/universal-sentence-encoder"
-model_use = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
-model_use.save(local_model_path)
+# Charger le modèle sBERT
+model_bert = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 
-def embed_use(texts):
+def embed_bert(texts):
     if not texts or not all(isinstance(text, str) and text.strip() for text in texts):
-        raise ValueError("Le texte d'entrée pour embed_use est vide ou invalide.")
-    return model_use(texts).numpy()
+        raise ValueError("Le texte d'entrée pour embed_bert est vide ou invalide.")
+    
+    # Vectorisation avec sBERT
+    return model_bert.encode(texts)
