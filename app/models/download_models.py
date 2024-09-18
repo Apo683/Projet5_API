@@ -9,9 +9,9 @@ bucket_name = 'sagemaker-eu-west-3-741448955370'
 
 # Fichiers à télécharger
 files_to_download = {
-    'mlb_fit.pkl': 'joblib/mlb_fit.pkl',  # LabelBinarizer
-    'svc_model_TFIDF_model.pkl': 'mlruns/svc_model_TFIDF/model.pkl',  # Modèle SVC entraîné avec TF-IDF
-    'tfidf_vectorizer.pkl': 'joblib/tfidf_vectorizer.pkl'  # Vectorizer TF-IDF
+    'mlb_fit.pkl': 'models/mlb_fit.pkl',  # LabelBinarizer
+    'svc_model_TFIDF_model.pkl': 'models/svc_model_TFIDF/model.pkl',  # Modèle SVC entraîné avec TF-IDF
+    'tfidf_vectorizer.pkl': 'models/tfidf_vectorizer.pkl'  # Vectorizer TF-IDF
 }
 
 # Dossier local où les fichiers seront stockés
