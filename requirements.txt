@@ -3,5 +3,5 @@ uvicorn
 pydantic
 joblib
 mlflow
-sentence-transformers
 boto3
+scikit-learn
