@@ -9,8 +9,9 @@ bucket_name = 'sagemaker-eu-west-3-741448955370'
 
 # Fichiers à télécharger
 files_to_download = {
-    'mlb_fit.pkl': 'joblib/mlb_fit.pkl',
-    'svc_model_BERT_model.pkl': 'mlruns/svc_model_BERT/model.pkl'
+    'mlb_fit.pkl': 'joblib/mlb_fit.pkl',  # LabelBinarizer
+    'svc_model_TFIDF_model.pkl': 'mlruns/svc_model_TFIDF/model.pkl',  # Modèle SVC entraîné avec TF-IDF
+    'tfidf_vectorizer.pkl': 'joblib/tfidf_vectorizer.pkl'  # Vectorizer TF-IDF
 }
 
 # Dossier local où les fichiers seront stockés
@@ -24,7 +25,7 @@ def download_from_s3(s3_key, local_path):
     except ClientError as e:
         print(f"Erreur lors du téléchargement de {s3_key} : {e}")
 
-# Télécharger les fichiers si ils n'existent pas déjà localement
+# Télécharger les fichiers s'ils n'existent pas déjà localement
 if not os.path.exists(local_model_directory):
     os.makedirs(local_model_directory)
 
@@ -38,6 +39,7 @@ for local_file_name, s3_key in files_to_download.items():
 
 # Charger les modèles après les avoir téléchargés
 mlb = joblib.load(os.path.join(local_model_directory, 'mlb_fit.pkl'))
-svc_model = joblib.load(os.path.join(local_model_directory, 'svc_model_BERT_model.pkl'))
+svc_model_tfidf = joblib.load(os.path.join(local_model_directory, 'svc_model_TFIDF_model.pkl'))
+tfidf_vectorizer = joblib.load(os.path.join(local_model_directory, 'tfidf_vectorizer.pkl'))
 
 # Vous pouvez maintenant utiliser ces modèles dans votre API

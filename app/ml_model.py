@@ -1,7 +1,6 @@
 import mlflow
 import joblib
 import numpy as np
-import boto3
 from app.config import MLB_PATH, MLFLOW_TRACKING_URI, ML_MODEL_PATH
 
 # Initialiser l'URI de suivi MLflow (Tracking URI)

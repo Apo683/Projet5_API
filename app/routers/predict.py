@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from app.models import TextRequest
-from app.utils import embed_bert
+from app.utils import embed_tfidf
 from app.ml_model import predict_tags
 from app.config import THRESHOLD
 
@@ -18,7 +18,7 @@ async def predict_tags_endpoint(request: TextRequest):
     
     logging.info(f"Full text: {full_text}")
     
-    X_predict = embed_bert([full_text])
+    X_predict = embed_tfidf([full_text])
     predicted_tags = predict_tags(X_predict, THRESHOLD)
     
     return predicted_tags
