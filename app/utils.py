@@ -1,7 +1,8 @@
 import joblib
+from app.config import VECTORIZER_PATH
 
 # Charger le vectoriseur TF-IDF (assurez-vous qu'il a été préalablement téléchargé via S3)
-tfidf_vectorizer = joblib.load('/app/models/tfidf_vectorizer.pkl')
+tfidf_vectorizer = joblib.load(VECTORIZER_PATH)
 
 def embed_tfidf(texts):
     """
