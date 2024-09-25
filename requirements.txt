@@ -5,3 +5,5 @@ joblib
 mlflow
 boto3
 scikit-learn
+pytest
+httpx
