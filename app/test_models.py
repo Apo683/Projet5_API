@@ -2,7 +2,7 @@ import joblib
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-ML_MODEL_PATH = os.path.join(BASE_DIR, 'models/svc_model_TFIDF/model.pkl')
+ML_MODEL_PATH = os.path.join(BASE_DIR, 'models/svc_model_TFIDF_model.pkl')
 MLB_PATH = os.path.join(BASE_DIR, 'models/mlb_fit.pkl')
 VECTORIZER_PATH = os.path.join(BASE_DIR, 'models/tfidf_vectorizer.pkl')
 
