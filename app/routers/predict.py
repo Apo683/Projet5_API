@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from app.models import TextRequest
 from app.utils import embed_tfidf
 from app.ml_model import predict_tags
@@ -12,9 +12,12 @@ router = APIRouter()
 async def predict_tags_endpoint(request: TextRequest):
     logging.info(f"Request received: {request}")
     
-    full_text = request.Title + " " + request.Body
+    # Concaténer le titre et le corps de la question
+    full_text = request.Title.strip() + " " + request.Body.strip()
+
+    # Vérifier si la requête contient un texte vide
     if not full_text.strip():
-        raise ValueError("Le texte d'entrée est vide.")
+        raise HTTPException(status_code=422, detail="Le titre et le corps ne peuvent pas être vides.")
     
     logging.info(f"Full text: {full_text}")
     

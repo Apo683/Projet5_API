@@ -15,7 +15,7 @@ files_to_download = {
 }
 
 # Dossier local où les fichiers seront stockés
-local_model_directory = '/home/ec2-user/Projet5_API/app/'
+local_model_directory = './app/'
 
 # Fonction pour télécharger un fichier depuis S3
 def download_from_s3(s3_key, local_path):
