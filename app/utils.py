@@ -1,6 +1,8 @@
 import joblib
 import re
 from bs4 import BeautifulSoup
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -27,5 +29,5 @@ def remove_stopwords_tokenize_lemmatize(text):
     lemmatizer = WordNetLemmatizer()
     tokens = word_tokenize(text)
     tokens = [lemmatizer.lemmatize(token) for token in tokens if token not in stop_words]
-    
+
     return tokens
