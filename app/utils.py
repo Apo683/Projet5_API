@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import nltk
 nltk.download('stopwords')
 nltk.download('punkt_tab')
+nltk.download('wordnet')
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
