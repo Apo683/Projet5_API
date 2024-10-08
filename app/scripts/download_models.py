@@ -8,6 +8,10 @@ load_dotenv(dotenv_path='credentials/.env')
 aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
 aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
+# Utiliser les credentials
+os.environ['AWS_ACCESS_KEY_ID'] = aws_access_key_id
+os.environ['AWS_SECRET_ACCESS_KEY'] = aws_secret_access_key
+
 # Configuration du bucket S3 et des fichiers à télécharger
 s3 = boto3.client('s3')
 bucket_name = 'sagemaker-eu-west-3-741448955370'
