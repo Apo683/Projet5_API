@@ -47,8 +47,8 @@ for local_file_name, s3_key in files_to_download.items():
         print(f"Le fichier {local_file_name} existe déjà localement, téléchargement ignoré.")
 
 # Charger les modèles après les avoir téléchargés
-mlb = joblib.load(os.path.join(local_model_directory, 'mlb_fit.pkl'))
-tfidf_vectorizer = joblib.load(os.path.join(local_model_directory, 'tfidf_vectorizer_final.pkl'))
-tfidf_svc_model = joblib.load(os.path.join(local_model_directory, 'tfidf_svc_model.pkl'))
+mlb = joblib.load(os.path.join(local_model_directory, 'models/mlb_fit.pkl'))
+tfidf_vectorizer = joblib.load(os.path.join(local_model_directory, 'models/tfidf_vectorizer_final.pkl'))
+tfidf_svc_model = joblib.load(os.path.join(local_model_directory, 'models/tfidf_svc_model.pkl'))
 
 # Vous pouvez maintenant utiliser ces modèles dans votre API
