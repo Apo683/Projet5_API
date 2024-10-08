@@ -1,7 +1,12 @@
 import os
 import boto3
-from botocore.exceptions import ClientError
 import joblib
+from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+
+load_dotenv(dotenv_path='credentials/.env')
+aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
+aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 # Configuration du bucket S3 et des fichiers à télécharger
 s3 = boto3.client('s3')
@@ -9,9 +14,9 @@ bucket_name = 'sagemaker-eu-west-3-741448955370'
 
 # Fichiers à télécharger
 files_to_download = {
-    'mlb_fit.pkl': 'models/mlb_fit.pkl',  # LabelBinarizer
-    'svc_model_TFIDF_model.pkl': 'models/svc_model_TFIDF/model.pkl',  # Modèle SVC entraîné avec TF-IDF
-    'tfidf_vectorizer.pkl': 'models/tfidf_vectorizer.pkl'  # Vectorizer TF-IDF
+    'mlb_fit.pkl': 'Projet5/models/mlb_fit.pkl',
+    'tfidf_vectorizer_final.pkl': 'Projet5/models/tfidf_vectorizer_final.pkl',
+    'tfidf_svc_model.pkl': 'Projet5/models/tfidf_svc_model.pkl'
 }
 
 # Dossier local où les fichiers seront stockés
@@ -39,7 +44,7 @@ for local_file_name, s3_key in files_to_download.items():
 
 # Charger les modèles après les avoir téléchargés
 mlb = joblib.load(os.path.join(local_model_directory, 'mlb_fit.pkl'))
-svc_model_tfidf = joblib.load(os.path.join(local_model_directory, 'svc_model_TFIDF_model.pkl'))
 tfidf_vectorizer = joblib.load(os.path.join(local_model_directory, 'tfidf_vectorizer.pkl'))
+tfidf_svc_model = joblib.load(os.path.join(local_model_directory, 'tfidf_svc_model.pkl'))
 
 # Vous pouvez maintenant utiliser ces modèles dans votre API

@@ -7,3 +7,4 @@ boto3
 scikit-learn
 pytest
 httpx
+python-dotenv
