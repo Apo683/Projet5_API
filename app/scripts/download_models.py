@@ -4,7 +4,7 @@ import joblib
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path='credentials/.env')
+load_dotenv(dotenv_path='app/credentials/.env')
 aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
 aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
