@@ -24,7 +24,7 @@ files_to_download = {
 }
 
 # Dossier local où les fichiers seront stockés
-local_model_directory = './app/'
+local_model_directory = './app/models/'
 
 # Fonction pour télécharger un fichier depuis S3
 def download_from_s3(s3_key, local_path):
@@ -45,10 +45,5 @@ for local_file_name, s3_key in files_to_download.items():
         download_from_s3(s3_key, local_path)
     else:
         print(f"Le fichier {local_file_name} existe déjà localement, téléchargement ignoré.")
-
-# Charger les modèles après les avoir téléchargés
-mlb = joblib.load(os.path.join(local_model_directory, 'models/mlb_fit.pkl'))
-tfidf_vectorizer = joblib.load(os.path.join(local_model_directory, 'models/tfidf_vectorizer_final.pkl'))
-tfidf_svc_model = joblib.load(os.path.join(local_model_directory, 'models/tfidf_svc_model.pkl'))
-
+        
 # Vous pouvez maintenant utiliser ces modèles dans votre API
