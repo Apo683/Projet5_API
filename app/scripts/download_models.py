@@ -1,6 +1,5 @@
 import os
 import boto3
-import joblib
 from botocore.exceptions import ClientError
 from dotenv import load_dotenv
 

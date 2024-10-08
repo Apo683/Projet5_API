@@ -8,3 +8,5 @@ scikit-learn
 pytest
 httpx
 python-dotenv
+bs4
+nltk
