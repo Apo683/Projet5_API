@@ -38,10 +38,9 @@ jobs:
     
     - name: Download models from S3
       run: |
-        aws s3 cp s3://sagemaker-eu-west-3-741448955370/models/tfidf_vectorizer.pkl app/models/tfidf_vectorizer.pkl
-        aws s3 cp s3://sagemaker-eu-west-3-741448955370/models/svc_model_TFIDF/model.pkl app/models/svc_model_TFIDF_model.pkl
-        aws s3 cp s3://sagemaker-eu-west-3-741448955370/models/mlb_fit.pkl app/models/mlb_fit.pkl
-        # Ajoutez toutes les commandes pour télécharger les autres fichiers de modèles nécessaires
+        aws s3 cp s3://sagemaker-eu-west-3-741448955370/Projet5/models/tfidf_vectorizer_final.pkl app/models/tfidf_vectorizer_final.pkl
+        aws s3 cp s3://sagemaker-eu-west-3-741448955370/Projet5/models/tfidf_svc_model.pkl app/models/tfidf_svc_model.pkl
+        aws s3 cp s3://sagemaker-eu-west-3-741448955370/Projet5/models/mlb_fit.pkl app/models/mlb_fit.pkl
     
     - name: Install dependencies
       run: |
