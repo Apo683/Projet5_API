@@ -1,0 +1,35 @@
+Étude des Approches : Recherche et analyse des meilleures pratiques pour chaque étape du pipeline MLOps.
+
+Outils Recommandés : Présentation des outils spécifiques pour chaque étape (prétraitement des données, entraînement, évaluation, déploiement, suivi des performances).
+
+
+
+Pipeline de Codage des Étapes :
+
+- Nettoyage du texte (suppression des stopwords, balises html), prétraitement du texte (normalisation, suppression des caractères non alphabétiques, lemmatization ou/et stemming, puis tokenization) 
+Outils: Pandas pour la manipulation des données, librairies comme BS4, NLTK et spaCy pour nettoyage et prétraitement du texte
+
+- Entrainement du modèle/optimisation du modèle : classification multilabel (MultiLabelBinarizer pour les étiquettes et MultiOutputClassifer pour la prédiction de plusieurs étiquettes), choix des hyperparamètres, recherche des meilleures combinaisons d'hyperparamètres par essais répétés
+Outils : Méthodes bag-of-words, TD-IDF, words embeddings ou Frameworks comme Gensim, sklearn, TensorFlow, Pytorch pour les modèles de vectorisation et classification et GridSearchCV de sklearn ou Optuna pour recherche des meilleurs hyperparamètres
+
+- Evaluation et validation du modèle : vérification des performances du modèle sur des jeux de données de validation et/ou de test et ensuite sélection du modèle le + performant
+Outils : les mêmes que précédemment + MLFlow pour suivi des expérimentations
+
+- CI/CD (Intégration continue / Déploiement continue) : Faciliter l'ajout des nouvelles features sans casser l'existant grâce au système de branches partagées avec phases de tests automatisés afin de garantir la fiabilité des modifications du code fusionné ainsi que la stabilité des modèles et des pipelines de données.
+Automatisation des tests et des publications de code à chaque étape, du fusionnement des modifications de code à la distribution des versions prêtes pour la production afin de déployer rapidement en production
+Outils : Git (avec GitHub avec GitHub Actions ou Gitlab), Jenkis ou BitBucket par exemple
+
+- Déploiement : Déploiement automatisé dans un conteneur de production + configuration d'un environnement de déploiement pour assurer la scalabilité et la gestion des ressources afin de maintenir les performances du modèles en fonction de la charge
+Outils : Docker, Kubernetes pour automatisation du déploiement et AWS, Azure, GoogleCloudPlatform pour environnement cloud scalable 
+
+
+
+Suivi de la performance en production : 
+
+- Monitoring : Surveiller les métriques de performances du modèle (ex : précision, rappel) mais aussi les métrique de dérive des données (data drift) qui indiquent si les données d'entrée évoluent par rapport aux données d'entrainement
+Outils : MLFlow ou Grafana par exemple
+
+- Gestion des modèles et des données : Suivi et versionning des données et des modèles 
+Outils : MLFlow, DVC
+
+- Feedback Loop / Réentrainement: recueillir les nouvelles données en production (feedbacks, erreurs, ...) et les intégrer dans le pipeline d'entrainement pour réentrainer le modèle en continu ou par batch automatiquement.
